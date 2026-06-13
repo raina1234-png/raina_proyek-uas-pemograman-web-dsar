@@ -1,4 +1,7 @@
-# 🌸 Petal Registry - Marine Coastal Florist Admin System
+```python?code_reference&code_event_index=5
+# Fixed the raw string windows backslash issue by using a normal string without direct backslash escape triggers.
+
+readme_content = """# 🌸 GlowFlora Skincare - Admin Management System
 
 <p align="center">
   <img src="https://img.shields.io/badge/Theme-Soft%20Pink-ffb6c1?style=for-the-badge" alt="Theme Soft Pink">
@@ -9,56 +12,57 @@
 ---
 
 ## 📌 Deskripsi Proyek
-[cite_start]**Petal Registry** adalah sistem manajemen admin florist berbasis web yang dirancang khusus untuk **Marine Coastal Florist**. [cite_start]Aplikasi ini berfungsi untuk mengelola data stok bunga, mencatat klasifikasi produk, menyematkan dokumentasi video, serta memvalidasi bukti penerimaan menggunakan tanda tangan digital langsung dari kurir atau pelanggan[cite: 1, 2].
+**GlowFlora Skincare Hub** adalah sistem manajemen informasi internal berbasis web yang dirancang khusus untuk pencatatan manajemen stok produk kecantikan dan kosmetik. Aplikasi ini mempermudah pengelolaan data varian skincare, pemantauan batas aman kuantitas gudang, integrasi media promosi video, hingga penandatanganan log manifest penerimaan secara digital.
 
 ---
 
 ## ✨ Fitur Utama
-Sistem ini mengimplementasikan berbagai modul fungsional penting:
-1. [cite_start]**Sistem Autentikasi Keamanan**: Halaman login admin menggunakan enkripsi password MD5 untuk membatasi akses pengelolaan data bunga[cite: 1, 2].
-2. [cite_start]**Form Tambah Data (Multiple Upload)**: Mendukung penginputan nama bunga, kategori/klasifikasi, harga, stok, dan unggah banyak file gambar sekaligus[cite: 1, 2].
-3. [cite_start]**HTML5 Video Player**: Penyematan video profil rangkaian toko bunga langsung di dalam *dashboard*.
-4. [cite_start]**Datatable Stok Produk**: Tabel interaktif untuk menampilkan data komprehensif, konversi format mata uang Rupiah, serta kalkulasi otomatis status kuantitas gudang (*Ready*, *Stok Kritis*, atau *Habis Total*)[cite: 1, 2].
-5. [cite_start]**Pencarian Data (Query MySQL)**: Fitur filter pencarian cepat berdasarkan nama bunga atau klasifikasi tertentu[cite: 2].
-6. [cite_start]**Data Tersemat (Modal Detail)**: Menampilkan detail log sekunder produk secara dinamis menggunakan Bootstrap Modal tanpa memuat ulang halaman[cite: 2].
-7. [cite_start]**Canvas TTD Digital**: Fitur *signature pad* berbasis HTML5 Canvas untuk menggambar tanda tangan digital kurir/penerima log manifest[cite: 2].
-8. **Export ke CSV**: Tombol ekstraksi data instan untuk mengunduh seluruh rekapitulasi stok produk ke dalam format Microsoft Excel / CSV.
+Aplikasi ini mengimplementasikan berbagai fitur interaktif modern:
+1. **Sistem Autentikasi Admin**: Pembatasan akses halaman dashboard utama menggunakan form login dengan enkripsi kata sandi berbasis keamanan MD5.
+2. **Form Tambah Produk (Multiple Files)**: Antarmuka penginputan nama produk kecantikan, harga, stok, deskripsi formula kandungan, serta dukungan unggah banyak file foto sekaligus.
+3. **HTML5 Video Player**: Embed video promosi rangkaian rutinitas produk (skincare routine) langsung di panel dashboard.
+4. **Datatable Stok Skincare**: Penyajian tabel responsif dengan pemformatan mata uang Rupiah (Rp) serta penanda otomatis untuk status kuantitas (Ready, Stok Kritis, atau Habis Total).
+5. **Fitur Cari & Filter (MySQL Query)**: Mempermudah pencarian cepat varian skincare tertentu melalui pencarian kata kunci nama maupun deskripsi produk.
+6. **Modal Detail Dinamis**: Menampilkan data sekunder tersemat dan rincian lengkap berkas foto produk menggunakan Bootstrap Modal tanpa reload halamannya.
+7. **Canvas TTD Digital (Signature Pad)**: Fitur tanda tangan digital berbasis HTML5 Canvas untuk validasi log penerimaan barang oleh kurir atau admin.
+8. **Export ke CSV**: Ekstraksi seluruh rekapitulasi data produk dari database langsung ke format Microsoft Excel / CSV secara instan.
 
 ---
 
 ## 🛠️ Spesifikasi Teknologi
-* [cite_start]**Frontend**: HTML5, CSS3, JavaScript (ES6), Bootstrap 5, FontAwesome 6 [cite: 2]
-* [cite_start]**Backend**: PHP (Versi 8+) [cite: 2]
-* [cite_start]**Database**: MySQL / phpMyAdmin [cite: 2]
-* [cite_start]**Server Lokal**: Laragon / XAMPP [cite: 2]
+* **Frontend**: HTML5, CSS3, JavaScript (ES6), Bootstrap 5, FontAwesome 6 Icons
+* **Backend**: PHP (Versi 8+)
+* **Database**: MySQL / phpMyAdmin
+* **Server Lokal**: Laragon / XAMPP
 
 ---
 
 ## 🗂️ Struktur Database (`produk`)
-Struktur tabel `produk` yang digunakan untuk menopang sistem ini:
+Struktur tabel database `produk` yang berjalan di dalam `glowflora_db`:
 
 | Kolom | Tipe Data | Keterangan |
 | :--- | :--- | :--- |
-| `id` | INT (AI, PK) | ID Unik Produk |
-| `nama` | VARCHAR(255) | Nama Varian Bunga |
-| `kategori` | VARCHAR(100) | Klasifikasi Bunga |
-| `harga` | INT | Nilai Valuasi Jual |
-| `stok` | INT | Kuantitas Gudang |
-| `gambar` | TEXT | Nama File Foto (Multiple) |
-| `tanda_tangan` | LONGTEXT | Base64 Data TTD Digital |
+| `id` | INT (AI, PK) | ID Unik Register Produk |
+| `nama` | VARCHAR(255) | Nama Varian Skincare |
+| `harga` | INT | Harga Jual Produk |
+| `stok` | INT | Kuantitas Stok di Gudang |
+| `deskripsi` | TEXT | Detail Formula / Kandungan |
+| `gambar` | TEXT | Nama File Foto Produk (Multiple) |
+| `tanda_tangan` | LONGTEXT | String Base64 Data Gambar TTD Digital |
 
 ---
 
 ## 🚀 Cara Instalasi & Menjalankan
 
-1. **Clone / Salin Proyek** Pindahkan folder proyek `glowflora_skincare` (atau folder florist kamu) ke direktori server lokal Anda:
-   * [cite_start]Jika menggunakan **Laragon**: `C:\laragon\www\` [cite: 2]
-   * Jika menggunakan **XAMPP**: `C:\xampp\htdocs\`
+1. **Salin Folder Proyek** Pindahkan folder proyek `glowflora_skincare` ke direktori server lokal Anda:
+   * Jika menggunakan **Laragon**: `C:/laragon/www/`
+   * Jika menggunakan **XAMPP**: `C:/xampp/htdocs/`
 
-2. [cite_start]**Impor Database** * Buka browser dan akses `localhost/phpmyadmin`[cite: 2].
-   * [cite_start]Buat database baru bernama `glowflora_db`[cite: 2].
-   * [cite_start]Impor file `database.sql` ke dalam database tersebut[cite: 2].
+2. **Impor Database** * Akses `localhost/phpmyadmin` di browser Anda.
+   * Buat database baru dengan nama `glowflora_db`.
+   * Pilih menu **Import**, lalu unggah file `database.sql` yang ada di folder proyek.
 
-3. **Konfigurasi Koneksi** Pastikan file `koneksi.php` sudah disesuaikan dengan kredensial server lokal Anda:
+3. **Konfigurasi Koneksi** Pastikan konfigurasi pada file `koneksi.php` sudah sesuai dengan server lokal:
    ```php
+   $conn = mysqli_connect("localhost", "root", "", "glowflora_db");
    $conn = mysqli_connect("localhost", "root", "", "glowflora_db");
